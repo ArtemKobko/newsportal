@@ -1,0 +1,76 @@
+$bdrcolor:rgb(154, 208, 226);
+$activcolor:rgb(78, 150, 173);
+$texcolor:rgb(140, 143, 144);
+$errorcolor:rgb(239, 115, 115);
+
+@mixin btn($w,$bgc,$m,$p,$fz,$brd,$rad) {
+  width:$w;
+  background-color: $bgc;
+  margin: $m;
+  padding: $p;
+  font-size: $fz;
+  border: $brd;
+  border-radius:$rad;
+}
+
+.login_form{
+      font-family:'Source Sans Pro', sans-serif;
+      width: 300px;
+      margin: 220px auto;
+      text-align: center;
+     & h2{
+      font-size: 40px;
+      font-style: italic;
+      margin-bottom: 15px;
+      color: $texcolor;
+     }
+     & span{
+      font-size: 20px;
+      font-style: italic;
+      font-weight: bold;
+      color: $texcolor;
+     }
+     .error_text{
+      color: $errorcolor;
+      margin: 0 5px 10px;
+     }
+     .forgot{
+      margin-left: 10px;
+      display: none;
+      font-size: 20px;
+      text-decoration: none;
+      color: $errorcolor;
+     }
+     .visible{
+      display: inline;
+     }
+}
+
+.input_log{
+  width: 90%;
+  font-size: 20px;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 2px $bdrcolor solid;
+  border-radius: 5px;
+  color: $texcolor;
+   &:focus{
+    border: 3px $activcolor solid;
+    outline: none;
+   }
+ }
+ .inputError{
+  border: 2px $errorcolor solid;
+   &:focus{
+    border: 3px $errorcolor solid;
+   }
+ }
+
+ .btn_singin{
+  @include btn(80%,$bdrcolor,10px,10px,20px,2px solid $bdrcolor,5px);
+  &:hover{
+    @include btn(82%,$activcolor,10px,10px,20px,2px solid $activcolor,5px);
+    cursor: pointer;
+  }
+ }
+ 
