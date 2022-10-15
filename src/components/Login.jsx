@@ -1,47 +1,68 @@
 import React, { useState } from 'react';
+import cx from 'classnames';
 import { useNavigate } from 'react-router-dom';
-import styles from '../App.modules.scss';
+import styles from '../App.module.scss';
 
 function Login() {
   const navigate = useNavigate();
-  const [login, setLogin] = useState('');
-  const [password, setPassword] = useState('');
-  const [valid, setValid] = useState('');
-  // const [visible, setVisible] = useState(false);
+  const [isError, setError] = useState(false);
 
-  function loginValue(event) {
-    setLogin(event.target.value);
-  }
-  function passwordValue(event) {
-    setPassword(event.target.value);
-  }
-  function enter() {
-    navigate('/posts');
-  }
-  function checkUser() {
-    if (login === process.env.REACT_APP_USER && password === process.env.REACT_APP_PASS) {
-      enter();
+  const onSignIn = (data) => {
+    const {
+      REACT_APP_LOGIN,
+      REACT_APP_PASSWORD,
+    } = process.env;
+    const {
+      login,
+      password,
+    } = data;
+    if (
+      REACT_APP_LOGIN
+      && REACT_APP_PASSWORD
+      && login === REACT_APP_LOGIN && password === REACT_APP_PASSWORD) {
+      setError(false);
+      navigate('/posts');
     } else {
-      setValid('Login or password is invalid');
-      console.log(styles);
-      // setVisible(true);
+      setError(true);
     }
-  }
+  };
+
+  const submitForm = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData) || {};
+    onSignIn(data);
+  };
+
   return (
-    <div className="login_form">
+    <div className={styles.login_form}>
       <h2>Please sing in</h2>
-      <h3>{valid}</h3> 
-      <input className={styles.input_log} type="text" placeholder="login" defaultValue={login} onChange={loginValue} />
-      <br />
-      <input type="password" placeholder="password" defaultValue={password} onChange={passwordValue} />
-      <div>
-        <input type="checkbox" />
-        <span>Remember me</span>
-        <a href="/" className="forgot">Forget password?</a>
-      </div>
-      <div>
-        <button className="btn_singin" type="submit" onClick={checkUser}>Sing In</button>
-      </div>
+      {isError && <h3>Login or password is invalid</h3>}
+      <form onSubmit={submitForm}>
+        <input
+          className={cx(styles.input, {
+            [styles.inputError]: isError,
+          })}
+          type="text"
+          placeholder="login"
+        />
+        <input
+          className={cx(styles.input, {
+            [styles.inputError]: isError,
+          })}
+          type="password"
+          placeholder="password"
+        />
+        <div>
+          <input type="checkbox" />
+          <span>Remember me</span>
+          <a href="/" className={styles.forgot}>Forget password?</a>
+        </div>
+        <div>
+          <button className={styles.btn_singin} type="submit">Sing In</button>
+        </div>
+      </form>
     </div>
   );
 }
