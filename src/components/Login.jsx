@@ -29,7 +29,6 @@ function Login() {
 
   const submitForm = (e) => {
     e.preventDefault();
-
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData) || {};
     onSignIn(data);
@@ -39,11 +38,12 @@ function Login() {
     <div className={styles.login_form}>
       <h2>Please sing in</h2>
       {isError && <h3>Login or password is invalid</h3>}
-      <form onSubmit={submitForm}>
+      <form id="auth" onSubmit={submitForm}>
         <input
           className={cx(styles.input, {
             [styles.inputError]: isError,
           })}
+          name="login"
           type="text"
           placeholder="login"
         />
@@ -51,6 +51,7 @@ function Login() {
           className={cx(styles.input, {
             [styles.inputError]: isError,
           })}
+          name="password"
           type="password"
           placeholder="password"
         />
