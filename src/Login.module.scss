@@ -31,6 +31,7 @@ $errorcolor: rgb(239 115 115);
     font-style: italic;
     font-weight: bold;
     color: $texcolor;
+    margin-right: 10px;
   }
 
   .error_text {
@@ -39,15 +40,9 @@ $errorcolor: rgb(239 115 115);
   }
 
   .forgot {
-    margin-left: 10px;
-    display: none;
     font-size: 20px;
     text-decoration: none;
     color: $errorcolor;
-  }
-
-  .visible {
-    display: inline;
   }
 }
 
