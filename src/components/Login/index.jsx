@@ -1,18 +1,19 @@
-/* eslint-disable import/no-cycle */
-import React, { useState, useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import cx from 'classnames';
-import { useNavigate } from 'react-router-dom';
-import styles from '../Login.module.scss';
-import { Context } from '../App';
+import { Link, useNavigate } from 'react-router-dom';
+import styles from './Login.module.scss';
+import { ROUTES } from '../../routes/constants';
+import { AppContext } from '../../contexts/appContext';
+import { changeUserStatus } from '../../models/auth/actions';
 
 function Login() {
-  const [, dispatch] = useContext(Context);
+  const [, dispatch] = useContext(AppContext);
   const navigate = useNavigate();
   const [isError, setError] = useState(false);
 
   const onSignIn = (data) => {
     const {
-      REACT_APP_USER,
+      REACT_APP_LOGIN,
       REACT_APP_PASS,
     } = process.env;
     const {
@@ -20,12 +21,12 @@ function Login() {
       password,
     } = data;
     if (
-      REACT_APP_USER
+      REACT_APP_LOGIN
       && REACT_APP_PASS
-      && login === REACT_APP_USER && password === REACT_APP_PASS) {
+      && login === REACT_APP_LOGIN && password === REACT_APP_PASS) {
       setError(false);
-      dispatch({ type: 'changeUserStatus' });
-      navigate('/posts');
+      dispatch(changeUserStatus(true));
+      navigate(ROUTES.POSTS);
     } else {
       setError(true);
     }
@@ -39,15 +40,15 @@ function Login() {
   };
 
   return (
-    <div className={styles.login_form}>
+    <div className={styles.loginForm}>
       <h2>Please sing in</h2>
       {isError && (
-      <h3 className={cx({
-        [styles.forgot]: isError,
-      })}
-      >
-        Login or password is invalid
-      </h3>
+        <h3 className={cx({
+          [styles.forgot]: isError,
+        })}
+        >
+          Login or password is invalid
+        </h3>
       )}
       <form id="auth" onSubmit={submitForm}>
         <input
@@ -70,19 +71,18 @@ function Login() {
           <input type="checkbox" />
           <span>Remember me</span>
           {isError && (
-          <a
-            href="/"
-            className={cx({
-              [styles.forgot]: isError,
-            })}
-          >
-            Forget password?
-
-          </a>
+            <Link
+              to="/"
+              className={cx({
+                [styles.forgot]: isError,
+              })}
+            >
+              Forget password?
+            </Link>
           )}
         </div>
         <div>
-          <button className={styles.btn_singin} type="submit">Sing In</button>
+          <button className={styles.btnSignin} type="submit">Sing In</button>
         </div>
       </form>
     </div>

@@ -1,19 +1,7 @@
-$bdrcolor: rgb(154 208 226);
-$activcolor: rgb(78 150 173);
-$texcolor: rgb(140 143 144);
-$errorcolor: rgb(239 115 115);
+@import "src/styles/constants";
+@import "src/styles/mixins";
 
-@mixin btn($w,$bgc,$m,$p,$fz,$brd,$rad) {
-  width: $w;
-  background-color: $bgc;
-  margin: $m;
-  padding: $p;
-  font-size: $fz;
-  border: $brd;
-  border-radius: $rad;
-}
-
-.login_form {
+.loginForm {
   font-family: "Source Sans Pro", sans-serif;
   width: 300px;
   margin: 220px auto;
@@ -34,7 +22,7 @@ $errorcolor: rgb(239 115 115);
     margin-right: 10px;
   }
 
-  .error_text {
+  .errorText {
     color: $errorcolor;
     margin: 0 5px 10px;
   }
@@ -69,7 +57,7 @@ $errorcolor: rgb(239 115 115);
   }
 }
 
-.btn_singin {
+.btnSignin {
   @include btn(80%, $bdrcolor, 10px, 10px, 20px, 2px solid $bdrcolor, 5px);
 
   &:hover {
