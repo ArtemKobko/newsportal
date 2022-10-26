@@ -1,21 +1,16 @@
-import React, { useMemo, useReducer } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router, Navigate, Route, Routes,
 } from 'react-router-dom';
 import Posts from '../Posts';
 import Login from '../Login';
 import ProtectedRoute from '../../routes/ProtectedRoute';
-import authReducer from '../../models/auth/reducer';
-import useAuth from '../../hooks/useAuth';
 import { AppContext } from '../../contexts/appContext';
 import { ROUTES } from '../../routes/constants';
+import useStore from '../../hooks/useStore';
 
 function App() {
-  // const auth = useAuth(false, 'userAuth');
-  // const [state, dispatch] = useReducer(authReducer, { isAuth: auth });
-  const auth = useAuth({ isAuth: false }, 'userAuth');
-  const [state, dispatch] = useReducer(authReducer, auth);
-  const providerValue = useMemo(() => [state, dispatch], [state, dispatch]);
+  const providerValue = useStore('userAuth');
   return (
     <AppContext.Provider value={providerValue}>
       <Router>

@@ -28,8 +28,7 @@ function Login() {
       setError(false);
       dispatch(changeUserStatus(true));
       if (checked) {
-        // localStorage.setItem('userAuth', JSON.stringify(true));
-        localStorage.setItem('userAuth', JSON.stringify({ isAuth: false }));
+        localStorage.setItem('userAuth', JSON.stringify(true));
       }
       navigate(ROUTES.POSTS);
     } else {
