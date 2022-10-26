@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-export const initialState = [{
+const initialState = [{
   isAuth: false,
 }, () => {
 }];

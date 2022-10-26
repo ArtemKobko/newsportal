@@ -1,6 +1,8 @@
 import { CHANGE_USER_STATUS } from './constants';
 
-function authReducer(state, action) {
+export const initialState = { isAuth: false };
+
+function authReducer(state = initialState, action) {
   switch (action.type) {
     case CHANGE_USER_STATUS:
       return {

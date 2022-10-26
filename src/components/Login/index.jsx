@@ -10,6 +10,7 @@ function Login() {
   const [, dispatch] = useContext(AppContext);
   const navigate = useNavigate();
   const [isError, setError] = useState(false);
+  const [checked, setCheked] = useState(false);
 
   const onSignIn = (data) => {
     const {
@@ -26,6 +27,10 @@ function Login() {
       && login === REACT_APP_LOGIN && password === REACT_APP_PASS) {
       setError(false);
       dispatch(changeUserStatus(true));
+      if (checked) {
+        // localStorage.setItem('userAuth', JSON.stringify(true));
+        localStorage.setItem('userAuth', JSON.stringify({ isAuth: false }));
+      }
       navigate(ROUTES.POSTS);
     } else {
       setError(true);
@@ -68,7 +73,7 @@ function Login() {
           placeholder="password"
         />
         <div>
-          <input type="checkbox" />
+          <input type="checkbox" className="rememberInput" checked={checked} onChange={() => setCheked(!checked)} />
           <span>Remember me</span>
           {isError && (
             <Link

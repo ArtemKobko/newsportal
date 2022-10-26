@@ -8,7 +8,7 @@ function ProtectedRoute({ children }) {
   const [state] = useContext(AppContext);
 
   if (!state.isAuth) {
-    return <Navigate to={ROUTES.LOGIN} replace />;
+    return <Navigate to={ROUTES.LOGIN} />;
   }
 
   return children;

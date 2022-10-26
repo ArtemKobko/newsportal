@@ -6,14 +6,16 @@ import Posts from '../Posts';
 import Login from '../Login';
 import ProtectedRoute from '../../routes/ProtectedRoute';
 import authReducer from '../../models/auth/reducer';
-import { AppContext, initialState } from '../../contexts/appContext';
+import useAuth from '../../hooks/useAuth';
+import { AppContext } from '../../contexts/appContext';
 import { ROUTES } from '../../routes/constants';
 
 function App() {
-  const [state, dispatch] = useReducer(authReducer, initialState);
-
+  // const auth = useAuth(false, 'userAuth');
+  // const [state, dispatch] = useReducer(authReducer, { isAuth: auth });
+  const auth = useAuth({ isAuth: false }, 'userAuth');
+  const [state, dispatch] = useReducer(authReducer, auth);
   const providerValue = useMemo(() => [state, dispatch], [state, dispatch]);
-
   return (
     <AppContext.Provider value={providerValue}>
       <Router>
@@ -27,7 +29,7 @@ function App() {
               </ProtectedRoute>
             )}
           />
-          <Route path="*" element={<Navigate to={ROUTES.LOGIN} replace />} />
+          <Route path="*" element={<Navigate to={ROUTES.LOGIN} />} />
         </Routes>
       </Router>
     </AppContext.Provider>
