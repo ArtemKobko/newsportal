@@ -10,7 +10,6 @@ function ProtectedRoute({ children }) {
   if (!state.isAuth) {
     return <Navigate to={ROUTES.LOGIN} />;
   }
-
   return children;
 }
 

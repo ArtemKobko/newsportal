@@ -8,6 +8,7 @@ import ProtectedRoute from '../../routes/ProtectedRoute';
 import { AppContext } from '../../contexts/appContext';
 import { ROUTES } from '../../routes/constants';
 import useStore from '../../hooks/useStore';
+import isLog from '../../routes/isLoginRoute';
 
 function App() {
   const providerValue = useStore('userAuth');
@@ -24,7 +25,7 @@ function App() {
               </ProtectedRoute>
             )}
           />
-          <Route path="*" element={<Navigate to={ROUTES.LOGIN} />} />
+          <Route path="*" element={<Navigate to={isLog()} />} />
         </Routes>
       </Router>
     </AppContext.Provider>
