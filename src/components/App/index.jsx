@@ -10,7 +10,7 @@ import { ROUTES } from '../../routes/constants';
 import useStore from '../../hooks/useStore';
 
 function App() {
-  const providerValue = useStore('userAuth');
+  const providerValue = useStore();
   return (
     <AppContext.Provider value={providerValue}>
       <Router>
