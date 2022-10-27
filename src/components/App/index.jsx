@@ -7,11 +7,11 @@ import Login from '../Login';
 import ProtectedRoute from '../../routes/ProtectedRoute';
 import { AppContext } from '../../contexts/appContext';
 import { ROUTES } from '../../routes/constants';
-import useStore from '../../hooks/useStore';
 import isLog from '../../routes/isLoginRoute';
+import useStore from '../../hooks/useStore';
 
 function App() {
-  const providerValue = useStore('userAuth');
+  const providerValue = useStore();
   return (
     <AppContext.Provider value={providerValue}>
       <Router>
