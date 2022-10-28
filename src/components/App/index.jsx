@@ -7,11 +7,12 @@ import Login from '../Login';
 import ProtectedRoute from '../../routes/ProtectedRoute';
 import { AppContext } from '../../contexts/appContext';
 import { ROUTES } from '../../routes/constants';
-import isLog from '../../routes/isLoginRoute';
 import useStore from '../../hooks/useStore';
+import getDefaultPage from '../../routes/getDefaultPage';
 
 function App() {
   const providerValue = useStore();
+  const [state] = providerValue;
   return (
     <AppContext.Provider value={providerValue}>
       <Router>
@@ -25,7 +26,7 @@ function App() {
               </ProtectedRoute>
             )}
           />
-          <Route path="*" element={<Navigate to={isLog()} />} />
+          <Route path="*" element={<Navigate to={getDefaultPage(state)} />} />
         </Routes>
       </Router>
     </AppContext.Provider>
