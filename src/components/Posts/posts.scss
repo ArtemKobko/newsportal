@@ -1,0 +1,58 @@
+@import "src/styles/constants";
+@import "src/styles/mixins";
+
+*{
+  font-family: "Source Sans Pro", sans-serif;
+}
+.mainHeader{
+  text-align: center;
+}
+.posts{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .post{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: $texcolor;
+    padding: 0 15px 10px 15px;
+    border: 1px solid  $bdrcolor;
+    border-radius: 10px;
+    width: 30%;
+    margin-top: 15px;
+    
+    h2{
+      color: #000;
+      text-align: center;
+      font-style: italic;
+      text-transform: capitalize;
+    }
+  }
+}
+
+ .buttons{
+  display: flex;
+  justify-content: space-between;
+
+  .btnView{
+    @include btn(20%, $bdrcolor, 3px, 3px, 15px, 2px solid $bdrcolor, 5px);
+
+    &:hover {
+      @include btn(20%, $activcolor, 3px, 3px, 15px, 2px solid $activcolor, 5px);
+  
+      cursor: pointer;
+    }
+  }
+
+  .btnDelete{
+    @include btn(20%, $errorcolor, 3px, 3px, 15px, 2px solid $errorcolor, 5px);
+
+    &:hover {
+      @include btn(20%, rgba(232, 101, 101, 0.952), 3px, 3px, 15px, 2px solid rgba(232, 101, 101, 0.952), 5px);
+
+      cursor: pointer;
+    }
+  }
+ }

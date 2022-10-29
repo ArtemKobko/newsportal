@@ -61,7 +61,7 @@
   @include btn(80%, $bdrcolor, 10px, 10px, 20px, 2px solid $bdrcolor, 5px);
 
   &:hover {
-    @include btn(82%, $activcolor, 10px, 10px, 20px, 2px solid $activcolor, 5px);
+    @include btn(80%, $activcolor, 10px, 10px, 20px, 2px solid $activcolor, 5px);
 
     cursor: pointer;
   }
