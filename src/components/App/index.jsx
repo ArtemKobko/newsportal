@@ -5,31 +5,25 @@ import {
 import Posts from '../Posts';
 import Login from '../Login';
 import ProtectedRoute from '../../routes/ProtectedRoute';
-import { AppContext } from '../../contexts/appContext';
 import { ROUTES } from '../../routes/constants';
-import useStore from '../../hooks/useStore';
 import getDefaultPage from '../../routes/getDefaultPage';
 
 function App() {
-  const providerValue = useStore();
-  const [state] = providerValue;
   return (
-    <AppContext.Provider value={providerValue}>
-      <Router>
-        <Routes>
-          <Route path={ROUTES.LOGIN} element={<Login />} />
-          <Route
-            path={ROUTES.POSTS}
-            element={(
-              <ProtectedRoute>
-                <Posts />
-              </ProtectedRoute>
+    <Router>
+      <Routes>
+        <Route path={ROUTES.LOGIN} element={<Login />} />
+        <Route
+          path={ROUTES.POSTS}
+          element={(
+            <ProtectedRoute>
+              <Posts />
+            </ProtectedRoute>
             )}
-          />
-          <Route path="*" element={<Navigate to={getDefaultPage(state)} />} />
-        </Routes>
-      </Router>
-    </AppContext.Provider>
+        />
+        <Route path="*" element={<Navigate to={getDefaultPage()} />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,6 +1,5 @@
 import { CHANGE_USER_STATUS } from './constants';
-
-export const initialState = { isAuth: false };
+import initialState from '../../store/store';
 
 function authReducer(state = initialState, action) {
   switch (action.type) {
@@ -10,7 +9,7 @@ function authReducer(state = initialState, action) {
         isAuth: action.payload,
       };
     default:
-      throw new Error();
+      return state;
   }
 }
 

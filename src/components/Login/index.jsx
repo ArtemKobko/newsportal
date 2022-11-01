@@ -1,14 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import cx from 'classnames';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './Login.module.scss';
 import { ROUTES } from '../../routes/constants';
-import { AppContext } from '../../contexts/appContext';
 import { changeUserStatus } from '../../models/auth/actions';
 
 function Login() {
-  const [, dispatch] = useContext(AppContext);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [isError, setError] = useState(false);
   const [checked, setCheked] = useState(false);
 
