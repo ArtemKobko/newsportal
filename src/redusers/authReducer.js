@@ -1,5 +1,6 @@
-import { CHANGE_USER_STATUS } from './constants';
-import initialState from '../../store/store';
+import { CHANGE_USER_STATUS } from '../models/auth/constants';
+
+export const initialState = { isAuth: false };
 
 function authReducer(state = initialState, action) {
   switch (action.type) {

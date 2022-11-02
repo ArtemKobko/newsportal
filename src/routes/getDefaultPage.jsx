@@ -1,7 +1,6 @@
 import { ROUTES } from './constants';
 
-function getDefaultPage() {
-  const isAuth = JSON.parse(localStorage.getItem('isAuth'));
+function getDefaultPage(isAuth) {
   if (isAuth) {
     return ROUTES.POSTS;
   }
