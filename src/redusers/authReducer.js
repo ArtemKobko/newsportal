@@ -1,4 +1,4 @@
-import { CHANGE_USER_STATUS } from './constants';
+import { CHANGE_USER_STATUS } from '../models/auth/constants';
 
 export const initialState = { isAuth: false };
 
@@ -10,7 +10,7 @@ function authReducer(state = initialState, action) {
         isAuth: action.payload,
       };
     default:
-      throw new Error();
+      return state;
   }
 }
 

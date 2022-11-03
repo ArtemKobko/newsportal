@@ -1,13 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Navigate } from 'react-router-dom';
-import { AppContext } from '../contexts/appContext';
+import store from '../store';
 import { ROUTES } from './constants';
 
 function ProtectedRoute({ children }) {
-  const [state] = useContext(AppContext);
-
-  if (!state.isAuth) {
+  if (store.isAuth) {
     return <Navigate to={ROUTES.LOGIN} />;
   }
   return children;
