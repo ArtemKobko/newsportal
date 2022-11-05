@@ -12,7 +12,7 @@ import getDefaultPage from '../../routes/getDefaultPage';
 
 function App() {
   useUserAuth();
-  const isAuth = useSelector((state) => state.authReducer.isAuth);
+  const isAuth = useSelector((state) => state.userAuth.isAuth);
   return (
     <Router>
       <Routes>

@@ -1,1 +1,2 @@
 export const CHANGE_USER_STATUS = 'CHANGE_USER_STATUS';
+export const GET_POSTS = 'GET_POSTS';

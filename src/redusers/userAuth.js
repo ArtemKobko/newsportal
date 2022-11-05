@@ -2,7 +2,7 @@ import { CHANGE_USER_STATUS } from '../models/auth/constants';
 
 export const initialState = { isAuth: false };
 
-function authReducer(state = initialState, action) {
+function userAuth(state = initialState, action) {
   switch (action.type) {
     case CHANGE_USER_STATUS:
       return {
@@ -14,4 +14,4 @@ function authReducer(state = initialState, action) {
   }
 }
 
-export default authReducer;
+export default userAuth;

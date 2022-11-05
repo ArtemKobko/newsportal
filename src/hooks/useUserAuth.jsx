@@ -4,7 +4,7 @@ import { changeUserStatus } from '../models/auth/actions';
 
 function useUserAuth() {
   const dispatch = useDispatch();
-  const stateAuth = useSelector((state) => state.authReducer.isAuth);
+  const stateAuth = useSelector((state) => state.userAuth.isAuth);
 
   useEffect(() => {
     if (!stateAuth) {
