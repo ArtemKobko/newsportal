@@ -1,0 +1,55 @@
+@import "src/styles/constants";
+@import "src/styles/mixins";
+
+* {
+  font-family: "Source Sans Pro", sans-serif;
+}
+.mainHeader {
+  text-align: center;
+}
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .post {
+    @include space-between;
+    flex-direction: column;
+    color: $texcolor;
+    padding: 0 15px 10px 15px;
+    border: 1px solid  $bntcolor;
+    border-radius: 10px;
+    width: 30%;
+    margin-top: 15px;
+    
+    h2 {
+      color: #000;
+      text-align: center;
+      font-style: italic;
+      text-transform: capitalize;
+    }
+  }
+}
+
+ .buttons {
+    @include space-between; 
+
+  .btnView {
+    @include postButtons($bntcolor);
+
+    &:hover {
+      @include postButtons($activcolor);
+  
+      cursor: pointer;
+    }
+  }
+
+  .btnDelete {
+    @include postButtons($errorcolor);
+
+    &:hover {
+      @include postButtons($actideletevcolor);
+      cursor: pointer;
+    }
+  }
+ }

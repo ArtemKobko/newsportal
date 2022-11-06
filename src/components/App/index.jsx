@@ -9,10 +9,11 @@ import ProtectedRoute from '../../routes/ProtectedRoute';
 import { ROUTES } from '../../routes/constants';
 import useUserAuth from '../../hooks/useUserAuth';
 import getDefaultPage from '../../routes/getDefaultPage';
+import { selectUserAuth } from '../../Selectors/selectUserAuth';
 
 function App() {
   useUserAuth();
-  const isAuth = useSelector((state) => state.authReducer.isAuth);
+  const isAuth = useSelector(selectUserAuth);
   return (
     <Router>
       <Routes>

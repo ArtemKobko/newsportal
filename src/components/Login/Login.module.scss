@@ -39,7 +39,7 @@
   font-size: 20px;
   padding: 5px;
   margin-bottom: 10px;
-  border: 2px $bdrcolor solid;
+  border: 2px $bntcolor solid;
   border-radius: 5px;
   color: $texcolor;
 
@@ -58,10 +58,10 @@
 }
 
 .btnSignin {
-  @include btn(80%, $bdrcolor, 10px, 10px, 20px, 2px solid $bdrcolor, 5px);
+  @include btn(80%, $bntcolor, 10px, 10px, 20px, 2px solid $bntcolor, 5px);
 
   &:hover {
-    @include btn(82%, $activcolor, 10px, 10px, 20px, 2px solid $activcolor, 5px);
+    @include btn(80%, $activcolor, 10px, 10px, 20px, 2px solid $activcolor, 5px);
 
     cursor: pointer;
   }

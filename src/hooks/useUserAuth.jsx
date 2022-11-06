@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeUserStatus } from '../models/auth/actions';
+import { selectUserAuth } from '../Selectors/selectUserAuth';
 
 function useUserAuth() {
   const dispatch = useDispatch();
-  const stateAuth = useSelector((state) => state.authReducer.isAuth);
+  const stateAuth = useSelector(selectUserAuth);
 
   useEffect(() => {
     if (!stateAuth) {
