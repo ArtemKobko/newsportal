@@ -23,14 +23,14 @@
   }
 
   .errorText {
-    color: $errorcolor;
+    color: $baseRed;
     margin: 0 5px 10px;
   }
 
   .forgot {
     font-size: 20px;
     text-decoration: none;
-    color: $errorcolor;
+    color: $baseRed;
   }
 }
 
@@ -39,30 +39,29 @@
   font-size: 20px;
   padding: 5px;
   margin-bottom: 10px;
-  border: 2px $bntcolor solid;
+  border: 2px $baseBlue solid;
   border-radius: 5px;
   color: $texcolor;
 
   &:focus {
-    border: 3px $activcolor solid;
+    border: 3px $activeBlue solid;
     outline: none;
   }
 }
 
 .inputError {
-  border: 2px $errorcolor solid;
+  border: 2px $baseRed solid;
 
   &:focus {
-    border: 3px $errorcolor solid;
+    border: 3px $baseRed solid;
   }
 }
 
 .btnSignin {
-  @include btn(80%, $bntcolor, 10px, 10px, 20px, 2px solid $bntcolor, 5px);
+  @include loginButtons($baseBlue);
 
   &:hover {
-    @include btn(80%, $activcolor, 10px, 10px, 20px, 2px solid $activcolor, 5px);
-
+    @include loginButtons($activeBlue);
     cursor: pointer;
   }
 }

@@ -4,7 +4,7 @@ import cx from 'classnames';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './Login.module.scss';
 import { ROUTES } from '../../routes/constants';
-import { changeUserStatus } from '../../models/auth/actions';
+import { changeUserStatus } from '../../models/userAuth/actions';
 
 function Login() {
   const navigate = useNavigate();

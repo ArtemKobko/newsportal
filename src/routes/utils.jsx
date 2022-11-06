@@ -1,10 +1,8 @@
 import { ROUTES } from './constants';
 
-function getDefaultPage(isAuth) {
+export const getDefaultPage = (isAuth) => {
   if (isAuth) {
     return ROUTES.POSTS;
   }
   return ROUTES.LOGIN;
-}
-
-export default getDefaultPage;
+};

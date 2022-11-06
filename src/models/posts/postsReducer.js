@@ -1,4 +1,4 @@
-import { GET_POSTS } from '../models/auth/constants';
+import { GET_POSTS } from './contants';
 
 export const initialState = { posts: [] };
 

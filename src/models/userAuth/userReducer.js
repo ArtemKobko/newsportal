@@ -1,4 +1,4 @@
-import { CHANGE_USER_STATUS } from '../models/auth/constants';
+import { CHANGE_USER_STATUS } from './constants';
 
 export const initialState = { isAuth: false };
 
