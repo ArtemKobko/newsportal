@@ -5,9 +5,9 @@
   font-family: "Source Sans Pro", sans-serif;
 }
 
-.headerConteiner {
+.headerContainer {
   @include space-between;
-  background-color:$headercolor;
+  background-color: $headercolor;
   padding: 10px 0 10px 20px;
 
   .mainHeader {
@@ -15,7 +15,7 @@
     font-style: italic;
   }
 
-  .createbtn {
+  .createBtn {
     @include createButton($baseBlue);
 
     &:hover {
@@ -30,13 +30,13 @@
 
   .text {
     margin-left: 20px;
-    font-size:25px;
+    font-size: 25px;
     color: $baseBlue;
   }
 
-  .logOutbtn {
+  .logOutBtn {
     @include logOutButton($baseRed);
-    margin-top:15px;
+    margin-top: 15px;
 
     &:hover {
       @include logOutButton($activeRed);
@@ -44,6 +44,6 @@
       cursor: pointer;
     }
   }
-  
+
 }
 
