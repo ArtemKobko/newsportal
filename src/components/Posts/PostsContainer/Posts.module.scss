@@ -4,9 +4,11 @@
 * {
   font-family: "Source Sans Pro", sans-serif;
 }
+
 .mainHeader {
   text-align: center;
 }
+
 .posts {
   display: flex;
   flex-wrap: wrap;
@@ -17,11 +19,11 @@
     flex-direction: column;
     color: $texcolor;
     padding: 0 15px 10px 15px;
-    border: 1px solid  $bntcolor;
+    border: 1px solid $baseBlue;
     border-radius: 10px;
     width: 30%;
     margin-top: 15px;
-    
+
     h2 {
       color: #000;
       text-align: center;
@@ -31,25 +33,24 @@
   }
 }
 
- .buttons {
-    @include space-between; 
+.buttons {
+  @include space-between;
 
   .btnView {
-    @include postButtons($bntcolor);
+    @include postButtons($baseBlue);
 
     &:hover {
-      @include postButtons($activcolor);
-  
+      @include postButtons($activeBlue);
       cursor: pointer;
     }
   }
 
   .btnDelete {
-    @include postButtons($errorcolor);
+    @include postButtons($baseRed);
 
     &:hover {
-      @include postButtons($actideletevcolor);
+      @include postButtons($activeRed);
       cursor: pointer;
     }
   }
- }
+}

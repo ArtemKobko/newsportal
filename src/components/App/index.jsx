@@ -1,32 +1,31 @@
 import React from 'react';
-import {
-  BrowserRouter as Router, Navigate, Route, Routes,
-} from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Posts from '../Posts';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from '../Login';
+import Posts from '../Posts';
 import ProtectedRoute from '../../routes/ProtectedRoute';
 import { ROUTES } from '../../routes/constants';
-import useUserAuth from '../../hooks/useUserAuth';
-import getDefaultPage from '../../routes/getDefaultPage';
-import { selectUserAuth } from '../../Selectors/selectUserAuth';
+import DefaultRoute from '../../routes/DefaultRoute';
+import { selectUserAuth } from '../../models/user/selectors';
 
 function App() {
-  useUserAuth();
   const isAuth = useSelector(selectUserAuth);
+  const userProtected = !isAuth && (
+    <Route path={ROUTES.LOGIN} element={<Login />} />
+  );
   return (
     <Router>
       <Routes>
-        <Route path={ROUTES.LOGIN} element={<Login />} />
+        {userProtected}
         <Route
           path={ROUTES.POSTS}
           element={(
             <ProtectedRoute>
               <Posts />
             </ProtectedRoute>
-            )}
+          )}
         />
-        <Route path="*" element={<Navigate to={getDefaultPage(isAuth)} />} />
+        <Route path="*" element={<DefaultRoute />} />
       </Routes>
     </Router>
   );

@@ -1,0 +1,49 @@
+@import "src/styles/constants";
+@import "src/styles/mixins";
+
+* {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.headerContainer {
+  @include space-between;
+  background-color: $headercolor;
+  padding: 10px 0 10px 20px;
+
+  .mainHeader {
+    font-size: 40px;
+    font-style: italic;
+  }
+
+  .createBtn {
+    @include createButton($baseBlue);
+
+    &:hover {
+      @include createButton($activeBlue);
+      cursor: pointer;
+    }
+  }
+}
+
+.logOut {
+  margin-top: 5px;
+
+  .text {
+    margin-left: 20px;
+    font-size: 25px;
+    color: $baseBlue;
+  }
+
+  .logOutBtn {
+    @include logOutButton($baseRed);
+    margin-top: 15px;
+
+    &:hover {
+      @include logOutButton($activeRed);
+      margin-top: 15px;
+      cursor: pointer;
+    }
+  }
+
+}
+

@@ -4,13 +4,13 @@ import cx from 'classnames';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './Login.module.scss';
 import { ROUTES } from '../../routes/constants';
-import { changeUserStatus } from '../../models/auth/actions';
+import { changeUserStatus } from '../../models/user/actions';
 
 function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isError, setError] = useState(false);
-  const [checked, setCheked] = useState(false);
+  const [checked, setChecked] = useState(false);
 
   const onSignIn = (data) => {
     const {
@@ -39,7 +39,7 @@ function Login() {
   const submitForm = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData) || {};
+    const data = Object.fromEntries(formData);
     onSignIn(data);
   };
 
@@ -72,7 +72,11 @@ function Login() {
           placeholder="password"
         />
         <div>
-          <input type="checkbox" className="rememberInput" checked={checked} onChange={() => setCheked(!checked)} />
+          <input
+            type="checkbox"
+            checked={checked}
+            onChange={() => setChecked(!checked)}
+          />
           <span>Remember me</span>
           {isError && (
             <Link
