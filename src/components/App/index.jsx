@@ -10,11 +10,9 @@ import { selectUserAuth } from '../../models/user/selectors';
 
 function App() {
   const isAuth = useSelector(selectUserAuth);
-
   const userProtected = !isAuth && (
     <Route path={ROUTES.LOGIN} element={<Login />} />
   );
-
   return (
     <Router>
       <Routes>

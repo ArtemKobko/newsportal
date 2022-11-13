@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPosts } from '../../../models/posts/actions';
+import { fetchPosts, deletePost } from '../../../models/posts/actions';
 import { selectPostItems } from '../../../models/posts/selectors';
 import styles from './Posts.module.scss';
 
@@ -12,6 +12,9 @@ function PostsContainer() {
     dispatch(fetchPosts());
   }, []);
 
+  const removePost = (id) => {
+    dispatch(deletePost(id));
+  };
   return (
     <div>
       <div className={styles.posts}>
@@ -25,7 +28,7 @@ function PostsContainer() {
             <p>{body}</p>
             <div className={styles.buttons}>
               <button type="button" className={styles.btnView}>View</button>
-              <button type="button" className={styles.btnDelete}>Delete</button>
+              <button type="button" className={styles.btnDelete} onClick={() => removePost(id)}>Delete</button>
             </div>
           </div>
         ))}

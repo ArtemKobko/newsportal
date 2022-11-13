@@ -39,7 +39,7 @@ function Login() {
   const submitForm = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData) || {};
+    const data = Object.fromEntries(formData);
     onSignIn(data);
   };
 

@@ -28,3 +28,18 @@
 @mixin logOutButton($color) {
   @include btn(75%, $color, 0, 3px, 22px, 2px solid $color, 5px);
 }
+
+@mixin input {
+  width: 90%;
+  font-size: 20px;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 2px $baseBlue solid;
+  border-radius: 5px;
+  color: $texcolor;
+
+  &:focus {
+    border: 3px $activeBlue solid;
+    outline: none;
+  }
+}
