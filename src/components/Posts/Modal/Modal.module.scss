@@ -16,14 +16,15 @@
     flex-direction: column;
     padding: 10px; 
     background-color: #fff;  
-    height: 300px;
-    width: 400px;
+    height: 370px;
+    width: 450px;
     margin: 200px auto;
     border-radius: 10px;
 
     .header {
       text-align: center;
       font-style: italic;
+      font-size: 30px;
     }
 
     .postTitle {
@@ -42,6 +43,7 @@
   
     .createBtn {
       @include postButtons($baseBlue);
+      font-size: 20px;
   
       &:hover {
         @include postButtons($activeBlue);
@@ -51,6 +53,7 @@
   
     .closeBtn {
       @include postButtons($baseRed);
+      font-size: 20px;
   
       &:hover {
         @include postButtons($activeRed);

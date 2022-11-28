@@ -3,23 +3,28 @@
 
 .loginForm {
   font-family: "Source Sans Pro", sans-serif;
-  width: 300px;
+  width: 450px;
   margin: 220px auto;
   text-align: center;
 
   & h2 {
-    font-size: 40px;
+    font-size: 50px;
     font-style: italic;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     color: $texcolor;
   }
 
   & span {
-    font-size: 20px;
+    font-size: 28px;
     font-style: italic;
     font-weight: bold;
     color: $texcolor;
-    margin-right: 10px;
+    margin: 10px;
+  }
+
+  .checkBox{
+    width: 16px;
+    height: 16px;
   }
 
   .errorText {
@@ -28,9 +33,10 @@
   }
 
   .forgot {
-    font-size: 20px;
+    font-size: 28px;
     text-decoration: none;
     color: $baseRed;
+    margin: 15px 0;
   }
 }
 
@@ -53,4 +59,11 @@
     @include loginButtons($activeBlue);
     cursor: pointer;
   }
+}
+
+@media (max-height: 450px) {
+  
+  .loginForm {
+    margin: 0 auto;
+   }
 }

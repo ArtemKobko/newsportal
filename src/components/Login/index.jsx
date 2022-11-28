@@ -73,6 +73,7 @@ function Login() {
         />
         <div>
           <input
+            className={styles.checkBox}
             type="checkbox"
             checked={checked}
             onChange={() => setChecked(!checked)}

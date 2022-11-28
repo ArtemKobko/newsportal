@@ -17,10 +17,13 @@
 
   .createBtn {
     @include createButton($baseBlue);
+    font-size: 22px;
 
     &:hover {
       @include createButton($activeBlue);
       cursor: pointer;
+     font-size: 22px;
+
     }
   }
 }
