@@ -61,7 +61,7 @@
   }
 }
 
-@media (max-height: 450px) {
+@media (max-height: $breakpointHeigthOne) {
   
   .loginForm {
     margin: 0 auto;

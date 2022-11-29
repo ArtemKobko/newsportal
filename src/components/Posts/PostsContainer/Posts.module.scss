@@ -54,3 +54,36 @@
     }
   }
 }
+
+@media (max-width: $breakpointWidthOne) {
+
+  .posts {
+    display: flex;
+  
+    .post {
+      width: 45%;
+    }
+  }
+}
+
+@media (max-width: $breakpointWidthTwo) {
+
+  .posts {
+    display: flex;
+  
+    .post {
+      width: 40%;
+    }
+  }
+}
+
+@media (max-width: $breakpointWidthThree) {
+
+  .posts {
+    display: flex;
+  
+    .post {
+      width: 80%;
+    }
+  }
+}

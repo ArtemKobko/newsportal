@@ -68,3 +68,77 @@
   display: none;
 }
 
+@media (max-width:$breakpointWidthThree) {
+
+  .modal{
+
+    .modalContent {
+      padding: 15px; 
+      height: 350px;
+      width: 390px;
+      margin: 50px auto;
+    }
+  }  
+}
+
+@media (max-width:$breakpointWidthFour) {
+
+  .modal {
+
+    .modalContent {
+      padding: 10px;  
+      height: 320px;
+      width: 300px;
+      margin: 120px auto;
+  
+      .header {
+        font-size: 25px;
+      }
+  
+      .postTitle {
+        @include input;
+        font-size: 22px;
+        margin-left: 12px;      
+      } 
+  
+      .postBody {
+        @include input;
+        resize: none; 
+        font-size: 22px;
+        margin-left: 12px; 
+      }
+    }
+  }  
+}
+
+@media (max-height: $breakpointHeigthOne) {
+
+  .modal{
+
+    .modalContent {
+      padding: 15px; 
+      height: 300px;
+      width: 390px;
+      margin: 10px auto;
+      border-radius: 10px;
+
+      .header {
+        margin-top: 0;
+        font-size: 25px;
+      }
+
+      .postTitle {
+        @include input;
+        font-size: 20px;
+        margin-left: 12px;      
+      } 
+  
+      .postBody {
+        @include input;
+        resize: none; 
+        font-size: 20px;
+        margin-left: 12px; 
+      }
+    }
+  }  
+}

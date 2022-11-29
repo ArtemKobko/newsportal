@@ -1,4 +1,5 @@
 @import "src/styles/constants";
+@import "src/styles/mixins";
 
 .postConteiner {
   max-width: 800px;
@@ -16,7 +17,6 @@
     text-transform: capitalize;
     font-size: 45px;
   }
-
 }
 
 .errorMessage {
@@ -24,8 +24,8 @@
   margin: 10px;
 }
 
-@media (max-width: 850px) {
-  
+@media (max-width: $breakpointWidthTwo) {
+
   .postConteiner {
     max-width: 550px;
     font-size: 25px;
@@ -36,31 +36,31 @@
    }
 }
 
-@media (max-width: 650px) {
-  
+@media (max-width: $breakpointWidthThree) {
+
   .postConteiner {
     max-width: 350px;
     font-size: 20px;
 
     h2 {
-    font-size: 30px;
+      font-size: 30px;
     }
-   }
+  }
 }
 
-@media (max-width: 400px) {
-  
+@media (max-width: $breakpointWidthFour) {
+
   .postConteiner {
     max-width: 250px;
     font-size: 18px;
 
     h2 {
-    font-size: 28px;
+      font-size: 28px;
     }
-   }
+  }
 }
 
-@media (max-height: 450px) {
+@media (max-height: $breakpointHeigthOne) {
   
   .postConteiner {
     margin: 20px auto;
@@ -68,7 +68,7 @@
     font-size: 25px;
 
     h2 {
-    font-size: 35px;
+      font-size: 35px;
     }
-   }
+  }
 }
