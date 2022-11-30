@@ -1,4 +1,9 @@
-# Getting Started with Create React App
+# How to login 
+
+Use login "admin" and password "12345678". 
+Also click "Remember me" to stay online and reload page without logout.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
