@@ -1,0 +1,74 @@
+@import "src/styles/constants";
+@import "src/styles/mixins";
+
+.postConteiner {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  font-size: 28px;
+  border: 2px solid $baseBlue;
+  border-radius: 10px;
+  color: $texcolor;
+  text-align: center;
+
+  h2 {
+    color: #000;
+    font-style: italic;
+    text-transform: capitalize;
+    font-size: 45px;
+  }
+}
+
+.errorMessage {
+  font-size: 50px;
+  margin: 10px;
+}
+
+@media (max-width: $breakpointWidthTwo) {
+
+  .postConteiner {
+    max-width: 550px;
+    font-size: 25px;
+
+    h2 {
+    font-size: 35px;
+    }
+   }
+}
+
+@media (max-width: $breakpointWidthThree) {
+
+  .postConteiner {
+    max-width: 350px;
+    font-size: 20px;
+
+    h2 {
+      font-size: 30px;
+    }
+  }
+}
+
+@media (max-width: $breakpointWidthFour) {
+
+  .postConteiner {
+    max-width: 250px;
+    font-size: 18px;
+
+    h2 {
+      font-size: 28px;
+    }
+  }
+}
+
+@media (max-height: $breakpointHeigthOne) {
+  
+  .postConteiner {
+    margin: 20px auto;
+    max-width: 550px;
+    font-size: 25px;
+
+    h2 {
+      font-size: 35px;
+    }
+  }
+}

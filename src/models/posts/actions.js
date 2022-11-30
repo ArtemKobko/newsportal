@@ -27,6 +27,15 @@ export const fetchPosts = () => (dispatch) => {
     });
 };
 
+export const getCurrentPost = (id) => (dispatch) => {
+  axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    .then((response) => dispatch(getPosts(response.data)))
+    .catch((error) => {
+      // eslint-disable-next-line no-console
+      console.error(error.toJSON());
+    });
+};
+
 export const changeModalState = (payload) => ({
   type: CHANGE_MODAL_STATE,
   payload,

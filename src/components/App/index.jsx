@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from '../Login';
 import Posts from '../Posts';
+import CurrentPost from '../CurrentPost';
 import ProtectedRoute from '../../routes/ProtectedRoute';
 import { ROUTES } from '../../routes/constants';
 import DefaultRoute from '../../routes/DefaultRoute';
@@ -22,6 +23,14 @@ function App() {
           element={(
             <ProtectedRoute>
               <Posts />
+            </ProtectedRoute>
+          )}
+        />
+        <Route
+          path="posts/:postId"
+          element={(
+            <ProtectedRoute>
+              <CurrentPost />
             </ProtectedRoute>
           )}
         />

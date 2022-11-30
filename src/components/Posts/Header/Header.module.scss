@@ -17,10 +17,12 @@
 
   .createBtn {
     @include createButton($baseBlue);
+    font-size: 22px;
 
     &:hover {
       @include createButton($activeBlue);
       cursor: pointer;
+     font-size: 22px;
     }
   }
 }
@@ -44,6 +46,109 @@
       cursor: pointer;
     }
   }
-
 }
 
+@media (max-width: $breakpointWidthTwo) {
+
+ .headerContainer {
+    @include space-between;
+
+    .createBtn {
+      width: 12%;
+      font-size: 22px;
+      
+      &:hover {
+        width: 12%;
+        font-size: 22px;
+      }  
+    }
+  } 
+}
+
+@media (max-width: $breakpointWidthThree) {
+
+  .headerContainer {
+     @include space-between;
+
+     .mainHeader {
+       font-size: 30px;
+     }
+ 
+     .createBtn {
+        width: 15%;
+        font-size: 20px;
+
+        &:hover {
+          width: 15%;
+          font-size: 20px;
+        }
+      }
+   }
+
+  .logOut {
+    margin-top: 5px;
+  
+    .text {
+      margin-left: 20px;
+      font-size: 20px;
+    }
+  
+    .logOutBtn {
+      font-size: 18px;
+      margin-top: 15px;
+  
+      &:hover {
+        font-size: 18px;
+        margin-top: 15px;
+        cursor: pointer;
+      }
+    }
+  }   
+}
+
+@media (max-width: $breakpointWidthFour) {
+
+  .headerContainer {
+     @include space-between;
+   
+     .mainHeader {
+       font-size: 33px;
+       text-align: center;
+       margin-left: 10px;
+     }
+ 
+     .createBtn {
+        width: 20%;
+        height: 50%;
+        font-size: 20px;
+        margin-top: 20px;
+
+        &:hover {
+          width: 20%;
+          height: 50%;
+          font-size: 20px;
+          margin-top: 20px;
+        }
+      }
+   }
+
+  .logOut {
+    margin-top: 15px;
+  
+    .text {
+      font-size: 15px;
+    }
+  
+    .logOutBtn {
+      font-size: 15px;
+      margin-top: 15px;
+
+  
+      &:hover {
+        font-size: 18px;
+        margin-top: 15px;
+        cursor: pointer;
+      }
+    }
+  }   
+}

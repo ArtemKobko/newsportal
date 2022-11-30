@@ -61,7 +61,7 @@ function Login() {
           })}
           name="login"
           type="text"
-          placeholder="login"
+          placeholder="admin"
         />
         <input
           className={cx(styles.input, {
@@ -69,10 +69,11 @@ function Login() {
           })}
           name="password"
           type="password"
-          placeholder="password"
+          placeholder="12345678"
         />
         <div>
           <input
+            className={styles.checkBox}
             type="checkbox"
             checked={checked}
             onChange={() => setChecked(!checked)}
