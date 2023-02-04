@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from '../Login';
 import Posts from '../Posts';
 import CurrentPost from '../CurrentPost';
@@ -27,7 +27,7 @@ function App() {
           )}
         />
         <Route
-          path="posts/:postId"
+          path="/posts/:postId"
           element={(
             <ProtectedRoute>
               <CurrentPost />
